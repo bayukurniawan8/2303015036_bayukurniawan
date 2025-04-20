@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Menghitung Nilai Rata-Rata - Bayu Kurniawan 2303015036</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      margin-top: 30px;
+    }
+    table {
+      margin: 0 auto;
+    }
+    td {
+      padding: 6px;
+      font-size: 16px;
+    }
+    input[type="number"] {
+      padding: 5px;
+      width: 160px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 8px 20px;
+      font-size: 16px;
+      background-color: royalblue;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4169e1;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Menghitung Nilai Rata-Rata</h2>
+
+  <form id="form_rata_2303015036">
+    <table>
+      <tr>
+        <td>Algoritma dan Dasar Pemrograman</td>
+        <td>=</td>
+        <td><input type="number" id="nilai1" placeholder="Masukan bilangan 1"></td>
+      </tr>
+      <tr>
+        <td>Prak. Algoritma dan Dasar Pemrograman</td>
+        <td>=</td>
+        <td><input type="number" id="nilai2" placeholder="Masukan bilangan 1"></td>
+      </tr>
+      <tr>
+        <td>Teknologi Berorientasi Objek</td>
+        <td>=</td>
+        <td><input type="number" id="nilai3" placeholder="Masukan bilangan 1"></td>
+      </tr>
+      <tr>
+        <td>Prak. Teknologi Berorientasi Objek</td>
+        <td>=</td>
+        <td><input type="number" id="nilai4" placeholder="Masukan bilangan 1"></td>
+      </tr>
+      <tr>
+        <td>Struktur Data</td>
+        <td>=</td>
+        <td><input type="number" id="nilai5" placeholder="Masukan bilangan 1"></td>
+      </tr>
+      <tr>
+        <td>Prak. Struktur Data</td>
+        <td>=</td>
+        <td><input type="number" id="nilai6" placeholder="Masukan bilangan 1"></td>
+      </tr>
+      <tr>
+        <td><strong>Rata-Rata</strong></td>
+        <td>=</td>
+        <td><input type="text" id="rataRata" readonly></td>
+      </tr>
+    </table>
+
+    <button type="button" onclick="hitungRataRata_2303015036()">Rata-Rata</button>
+  </form>
+
+  <script>
+    function hitungRataRata_2303015036() {
+      let total = 0;
+      let count = 6;
+
+      for (let i = 1; i <= count; i++) {
+        const nilai = parseFloat(document.getElementById("nilai" + i).value) || 0;
+        total += nilai;
+      }
+
+      const rataRata = total / count;
+      document.getElementById("rataRata").value = rataRata.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>
