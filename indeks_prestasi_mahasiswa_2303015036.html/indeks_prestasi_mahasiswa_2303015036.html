@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Menghitung Indeks Prestasi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 20px;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 8px;
+      border: 1px solid #000;
+    }
+    input[type="text"] {
+      width: 50px;
+    }
+    input[readonly] {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Menghitung Indeks Prestasi</h2>
+
+  <form id="ipForm">
+    <table>
+      <tr>
+        <td>Kehadiran (10%) :</td>
+        <td><input type="text" id="kehadiran" value="100"></td>
+        <td>Tugas (20%) :</td>
+        <td><input type="text" id="tugas" value="100"></td>
+        <td>UTS (30%) :</td>
+        <td><input type="text" id="uts" value="100"></td>
+        <td>UAS (40%) :</td>
+        <td><input type="text" id="uas" value="100"></td>
+      </tr>
+      <tr>
+        <td colspan="8">
+          <button type="button" onclick="hitungIP()">Hitung</button>
+          <button type="reset" onclick="resetForm()">Ulang</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">Indeks Prestasi :</td>
+        <td colspan="1"><input type="text" id="ip" readonly></td>
+        <td colspan="1">Keterangan :</td>
+        <td colspan="2"><input type="text" id="keterangan" readonly></td>
+      </tr>
+    </table>
+  </form>
+
+  <script>
+    function hitungIP() {
+      const kehadiran = parseFloat(document.getElementById("kehadiran").value) || 0;
+      const tugas = parseFloat(document.getElementById("tugas").value) || 0;
+      const uts = parseFloat(document.getElementById("uts").value) || 0;
+      const uas = parseFloat(document.getElementById("uas").value) || 0;
+
+      const ip = (kehadiran * 0.10) + (tugas * 0.20) + (uts * 0.30) + (uas * 0.40);
+      document.getElementById("ip").value = ip.toFixed(2);
+
+      let keterangan = "";
+      if (ip >= 85) {
+        keterangan = "Nilai A";
+      } else if (ip >= 75) {
+        keterangan = "Nilai B";
+      } else if (ip >= 65) {
+        keterangan = "Nilai C";
+      } else if (ip >= 50) {
+        keterangan = "Nilai D";
+      } else {
+        keterangan = "Nilai E";
+      }
+
+      document.getElementById("keterangan").value = keterangan;
+    }
+
+    function resetForm() {
+      document.getElementById("ip").value = "";
+      document.getElementById("keterangan").value = "";
+    }
+  </script>
+
+</body>
+</html>
